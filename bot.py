@@ -499,8 +499,9 @@ async def ban_user(ctx, username: str):
 
 # Start both Flask and Discord bot
 def run_flask():
-    """Run Flask server."""
-    app.run(host="0.0.0.0", port=5000)
+    from waitress import serve
+    serve(app, host='0.0.0.0', port=5000)
+
 
 def run_discord():
     """Run Discord bot."""
